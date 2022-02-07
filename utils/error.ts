@@ -1,4 +1,3 @@
-import * as express from 'express';
 import { Request, Response, NextFunction } from 'express';
 
 export class ValidationError extends Error {}

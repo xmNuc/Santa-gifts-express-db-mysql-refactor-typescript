@@ -1,9 +1,13 @@
-const { pool } = require('../utils/db');
-const { ValidationError } = require('../utils/error');
-const { v4: uuid } = require('uuid');
+import { pool } from '../utils/db';
+import { ValidationError } from '../utils/error';
+import { v4 as uuid } from 'uuid';
 
-class ChildRecord {
-  constructor(obj) {
+export class ChildRecord {
+  public id?: string;
+  public name: string;
+  public giftId: string;
+
+  constructor(obj: ChildRecord) {
     if (!obj.name || obj.name.length < 3 || obj.name.length > 25) {
       throw new ValidationError('Name should be min 3 max 25 characters.');
     }
@@ -13,7 +17,7 @@ class ChildRecord {
     this.giftId = obj.giftId;
   }
 
-  async insert() {
+  async insert(): Promise<string> {
     if (!this.id) {
       this.id = uuid();
     }
