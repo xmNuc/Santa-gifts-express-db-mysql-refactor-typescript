@@ -1,6 +1,7 @@
 import { pool } from '../utils/db';
 import { ValidationError } from '../utils/error';
 import { v4 as uuid } from 'uuid';
+import { FieldPacket } from 'mysql2';
 
 type GiftRecordResults = [GiftRecord[], FieldPacket[]];
 
