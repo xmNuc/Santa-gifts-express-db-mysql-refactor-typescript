@@ -1,7 +1,7 @@
-const { Router } = require('express');
-const { GiftRecord } = require('../records/gift.record');
+import { Router } from 'express';
+import { GiftRecord } from '../records/gift.record';
 
-const giftRouter = Router();
+export const giftRouter = Router();
 
 giftRouter
   .get('/', async (req, res) => {
@@ -23,7 +23,3 @@ giftRouter
 
     res.redirect('/gift');
   });
-
-module.exports = {
-  giftRouter,
-};
